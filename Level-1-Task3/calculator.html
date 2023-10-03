@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    i{
+        color:black;
+        font-size:40px;
+        margin-top:20px;
+    }
+    input{
+        height:70px;
+        border-radius: 10px;
+        font-size: 40px;
+        width:fit-content;
+    }
+    #inp{
+        max-width:500px;
+    }
+    #text{
+        color:black;
+        font-size:40px;
+    }
+    #but{
+        text-align: center;
+        border-radius: 8px;
+        box-shadow: 7px 0 15px lightgray;
+    }
+    .container{
+        max-width: 600px;
+    }
+    #but:hover{
+        background-color: black;
+    }
+    #but:hover p,#but:hover i{
+        color:white;
+    }
+</style>
+<body>
+    <main class="container mt-5">
+        <div class="row">
+        <div class="col md-10" id="inp">
+        <input type="text" id="val" placeholder="enter"></div>
+        <div class="col md-3" id="but" onclick="clearA()"><i class="fa-solid fa-delete-left"></i></div>
+        </div>
+        <div class="row">
+            <div class="col md-3" onclick="clearA()" id="but"><p id="text">AC</p></div>
+            <div class="col md-3" onclick="get('(')" id="but"><p id="text">(</p></div>
+            <div class="col md-3" onclick="get(')')" id="but"><p id="text">)</p></div>
+            <div class="col md-3" onclick="get('/')" id="but"><i class="fa-solid fa-divide"></i></div>
+        </div>
+        <div class="row">
+            <div class="col md-3" onclick="get('7')" id="but"><p id="text">7</p></div>
+            <div class="col md-3" onclick="get('8')" id="but"><p id="text">8</p></div>
+            <div class="col md-3" onclick="get('9')" id="but"><p id="text">9</p></div>
+            <div class="col md-3" onclick="get('*')" id="but"><i class="fa-solid fa-multiply"></i></div>
+        </div>
+        <div class="row">
+            <div class="col md-3" onclick="get('6')" id="but"><p id="text">6</p></div>
+            <div class="col md-3" onclick="get('5')" id="but"><p id="text">5</p></div>
+            <div class="col md-3" onclick="get('4')" id="but"><p id="text">4</p></div>
+            <div class="col md-3" onclick="get('-')" id="but"><i class="fa-solid fa-minus"></i></div>
+        </div>
+        <div class="row">
+            <div class="col md-3" onclick="get('3')" id="but"><p id="text">3</p></div>
+            <div class="col md-3" onclick="get('2')" id="but"><p id="text">2</p></div>
+            <div class="col md-3" onclick="get('1')" id="but"><p id="text">1</p></div>
+            <div class="col md-3" onclick="get('+')" id="but"><i class="fa-solid fa-plus"></i></div>
+        </div>
+        <div class="row">
+            <div class="col md-3" onclick="get('.')" id="but"><p id="text">.</p></div>
+            <div class="col md-3" onclick="get('0')" id="but"><p id="text">0</p></div>
+            <div class="col md-3" onclick="ans()" id="but"><p id="text">=</p></div>
+            <div class="col md-3" onclick="ans()" id="but"><p id="text">Enter</p></div>
+        </div>
+    </main>
+    <script>
+        var res="";
+        var sl=document.getElementById("val");
+        res+=sl.value;
+        function get(a)
+        {
+            res+=a;
+            sl.value=res;
+        }
+        function ans()
+        {
+            sl.value=eval(res);
+            res=sl.value;
+        }
+        function clearA()
+        {
+            res="";
+            sl.value=res;
+        }
+    </script>
+</body>
+</html>
